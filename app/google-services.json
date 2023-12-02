@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "851055160566",
+    "firebase_url": "https://chummademo-876fb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "chummademo-876fb",
+    "storage_bucket": "chummademo-876fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851055160566:android:d31caf73fee35dd59190d7",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXKgr4NNWFMlG8h3pByWZ0BztBYx2XeX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
