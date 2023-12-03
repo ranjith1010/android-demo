@@ -1,36 +1,430 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation = "vertical">
+        <ListView
+            android:id = "@+id/list"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:divider = "#000"
+            android:dividerHeight = "1dp"
+            android:footerDividersEnabled = "false"
+            android:headerDividersEnabled = "false"
+            />
+    </LinearLayout>
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:layout_editor_absoluteX="0dp"-->
+<!--        tools:layout_editor_absoluteY="-127dp">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="10sp">-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--            -->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SEND"
-        android:id="@+id/btn"/>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/filledTextField"-->
+<!--                style="?attr/textInputFilledStyle"-->
+<!--                android:layout_width="250sp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="50sp"-->
+<!--                android:hint="Enter your mobile number">-->
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/code"/>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content" />-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/submit"/>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-</LinearLayout>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/blood_group"-->
+<!--                android:layout_width="250sp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="50sp"-->
+<!--                android:hint="Select Blood Group"-->
+<!--            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">-->
+
+<!--            <AutoCompleteTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="none"-->
+<!--                app:simpleItems="@array/blood_groups"-->
+<!--                />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/filledTextFieldDisabled"-->
+<!--                style="?attr/textInputFilledStyle"-->
+<!--                android:layout_width="250sp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10sp"-->
+<!--                android:enabled="false">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="I'm disabled" />-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/filledButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10sp"-->
+<!--                android:text="SUBMIT" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="80sp"-->
+<!--                android:layout_marginTop="10sp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight=".25"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/inter_extrabold"-->
+<!--                        android:text="53"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="30sp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/inter_semibold"-->
+<!--                        android:text="New \nRequests"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#636363" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight=".125"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <View-->
+<!--                        android:layout_width="2dp"-->
+<!--                        android:layout_height="fill_parent"-->
+<!--                        android:layout_gravity="center_horizontal"-->
+<!--                        android:background="#A2A2A2" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight=".25"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/inter_extrabold"-->
+<!--                        android:text="687"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="30sp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/inter_semibold"-->
+<!--                        android:text="Units \nDonated"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#636363" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight=".125"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <View-->
+<!--                        android:layout_width="2dp"-->
+<!--                        android:layout_height="fill_parent"-->
+<!--                        android:layout_gravity="center_horizontal"-->
+<!--                        android:background="#A2A2A2" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight=".25"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/inter_extrabold"-->
+<!--                        android:text="7.5k+"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="30sp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/inter_semibold"-->
+<!--                        android:text="Active \nDonors"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#636363" />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/request"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100sp"-->
+<!--                android:layout_marginTop="20sp"-->
+<!--                android:background="@drawable/rounded_background_light"-->
+<!--                android:clickable="true"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.7"-->
+<!--                    android:fontFamily="@font/inter_extrabold"-->
+<!--                    android:gravity="end|center_vertical"-->
+<!--                    android:paddingRight="20sp"-->
+<!--                    android:text="REQUEST BLOOD"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textSize="22sp" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="60sp"-->
+<!--                    android:layout_gravity="start|center_vertical"-->
+<!--                    android:layout_weight="0.3"-->
+<!--                    android:contentDescription="blood_light"-->
+<!--                    android:src="@drawable/three_blood_drops_white" />-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/viewRequests"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100sp"-->
+<!--                android:layout_marginTop="20sp"-->
+<!--                android:background="@drawable/rounded_background_dark"-->
+<!--                android:clickable="true"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="0.7"-->
+<!--                    android:fontFamily="@font/inter_extrabold"-->
+<!--                    android:gravity="end|center_vertical"-->
+<!--                    android:paddingRight="20sp"-->
+<!--                    android:text="VIEW REQUESTS"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textSize="22sp" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="60sp"-->
+<!--                    android:layout_gravity="start|center_vertical"-->
+<!--                    android:layout_weight="0.3"-->
+<!--                    android:src="@drawable/three_blood_drops_dark" />-->
+<!--            </LinearLayout>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="heartLine"-->
+<!--                android:src="@drawable/heart_line" />-->
+
+<!--            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--                android:id="@+id/extended_fab"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom|end"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:fontFamily="@font/inter_medium"-->
+<!--                android:text="+ New Request"-->
+<!--                android:textSize="15sp" />-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="130sp"-->
+<!--                android:padding="10sp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:background="@drawable/rounded_background_grey"-->
+<!--                >-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="100sp"-->
+<!--                    android:layout_weight="0.25"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/rounded_background_light"-->
+<!--                    >-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="0.2"-->
+<!--                        android:layout_margin="2sp"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/top_rounded_background_grey"-->
+<!--                        >-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:text="30 mins ago"-->
+<!--                            android:fontFamily="@font/inter_extrabold"-->
+<!--                            android:textSize="13sp"-->
+<!--                            android:textColor="@color/md_theme_light_tertiary"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:layout_weight="0.8"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:fontFamily="@font/inter_extrabold"-->
+<!--                            android:text="B+"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:textSize="40sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="100sp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginLeft="10sp"-->
+<!--                    android:layout_weight="0.50"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="15sp"-->
+<!--                        android:layout_height="15sp"-->
+<!--                        android:layout_marginRight="5sp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/user"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:text="ARUN VIJAY"-->
+<!--                        android:fontFamily="@font/inter_bold"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        />-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_marginTop="10sp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="14sp"-->
+<!--                            android:layout_height="15sp"-->
+<!--                            android:layout_marginRight="5sp"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:src="@drawable/location"/>-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:text="Apollo Hospitals\nPoonamallee High Road\nChennai"-->
+<!--                            android:fontFamily="@font/inter_regular"-->
+<!--                            android:textColor="@android:color/black"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_marginTop="10sp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="15sp"-->
+<!--                            android:layout_height="15sp"-->
+<!--                            android:src="@drawable/blood_drop_red"/>-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="15sp"-->
+<!--                            android:layout_height="15sp"-->
+<!--                            android:src="@drawable/blood_drop_red"/>-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="15sp"-->
+<!--                            android:layout_height="15sp"-->
+<!--                            android:src="@drawable/blood_drop_red"/>-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="15sp"-->
+<!--                            android:layout_height="15sp"-->
+<!--                            android:src="@drawable/blood_drop_grey"/>-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:layout_marginLeft="3sp"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:text="3/4 UNITS"-->
+<!--                            android:fontFamily="@font/inter_semibold"-->
+<!--                            android:textColor="@android:color/black"-->
+<!--                            />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="100sp"-->
+<!--                    android:layout_weight="0.25"-->
+<!--                    android:layout_margin="2sp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="30sp"-->
+<!--                        android:src="@drawable/phone"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:layout_marginTop="4sp"-->
+<!--                        android:textSize="11sp"-->
+<!--                        android:text="RANJITH"-->
+<!--                        android:fontFamily="@font/inter_semibold"-->
+<!--                        android:textColor="#8E8E8E"-->
+<!--                        />-->
+<!--                    <Button-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="36sp"-->
+<!--                        android:layout_marginTop="14sp"-->
+<!--                        android:layout_gravity="bottom"-->
+<!--                        android:text="DONATE"-->
+<!--                        android:textSize="8.5sp"-->
+<!--                        android:fontFamily="@font/inter_semibold"/>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

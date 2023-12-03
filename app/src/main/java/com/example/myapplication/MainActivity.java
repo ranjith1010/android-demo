@@ -8,9 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,94 +46,56 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b = findViewById(R.id.btn);
-        submit = findViewById(R.id.submit);
-        submit.setOnClickListener(v -> {
-            String code = ((EditText)findViewById(R.id.code)).getText().toString();
-            verifyCode(code);
-        });
-        b.setOnClickListener(v -> {
-            try {
-                PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks
-                        = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    @Override
-                    public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                        Toast.makeText(MainActivity.this, "Code Sent", Toast.LENGTH_SHORT).show();
-                        super.onCodeSent(s, forceResendingToken);
-                        verificationId = s;
-                    }
-                    @Override
-                    public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                        final String code = phoneAuthCredential.getSmsCode();
-                        Toast.makeText(MainActivity.this, code, Toast.LENGTH_SHORT).show();
-                        if (code != null) {
-            //                edtOTP.setText(code);
-//                            verifyCode(code);
-                        }
-                    }
-                    @Override
-                    public void onVerificationFailed(FirebaseException e) {
-                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                };
-                mAuth = FirebaseAuth.getInstance();
-                PhoneAuthOptions options =
-                        PhoneAuthOptions.newBuilder(mAuth)
-                                .setPhoneNumber("+917558174283")       // Phone number to verify
-                                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                                .setActivity(this)                 // (optional) Activity for callback binding
-                                // If no activity is passed, reCAPTCHA verification can not be used.
-                                .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
-                                .build();
-                PhoneAuthProvider.verifyPhoneNumber(options);
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference("message");
-//                myRef.setValue("Hello, World!");
-            }
-            catch (Exception e){
-                Log.e(TAG,e.getMessage());
-            }
-        });
-    }
+        User user1 = new User("Ranjith","18693","Bengaluru","9080093100","B+");
+        User user2 = new User("Sriprasath","18693","Bengaluru","9080093100","B+");
+        User user3 = new User("Sriprasath","18693","Bengaluru","9080093100","B+");
+        final ListView list = findViewById(R.id.list);
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        users.add(user3);
+        users.add(user3);
+        users.add(user3);
+        users.add(user3);
 
-    private void verifyCode(String code) {
-        Toast.makeText(MainActivity.this, "Verifying", Toast.LENGTH_SHORT).show();
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        signInWithCredential(credential);
-    }
+        RequestListViewAdapter customAdapter = new RequestListViewAdapter(this, users);
+        list.setAdapter(customAdapter);
 
-    public void basicReadWrite() {
 
-//        myRef.setValue();
-
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                String value = dataSnapshot.getValue(String.class);
-//                Log.d(TAG, "Value is: " + value);
-//            }
+//        b = findViewById(R.id.filledButton);
+//        b.setOnClickListener(v -> {
+//            User user = new User("Ranjith","18693","Bengaluru","9080093100","B+");
+//            FirebaseDatabase db = FirebaseDatabase.getInstance();
+//            DatabaseReference userdb = db.getReference("users");
+//            String uid = userdb.push().getKey();
 //
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                // Failed to read value
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
+//            userdb.child(uid).setValue(user).addOnCompleteListener(task -> {
+//                if(task.isSuccessful()){
+//                    Toast.makeText(MainActivity.this,"DETAILS ADDED",Toast.LENGTH_LONG).show();
+//                }else{
+//                    Toast.makeText(MainActivity.this,"NOT ADDED",Toast.LENGTH_LONG).show();
+//                }
+//            });
 //        });
-    }
+//
+//        LinearLayout requestBlood = findViewById(R.id.request);
+//        LinearLayout viewRequests = findViewById(R.id.viewRequests);
+//
+//        requestBlood.setOnClickListener(v -> {
+//            Animation anim = AnimationUtils.loadAnimation(this, R.anim.fadein);
+//            requestBlood.startAnimation(anim);
+//            Handler handler = new Handler();
+//            handler.postDelayed(() -> Toast.makeText(MainActivity.this,"Request Blood",Toast.LENGTH_LONG).show(), 200);
+//        });
+//
+//        viewRequests.setOnClickListener(v -> {
+//            Animation anim = AnimationUtils.loadAnimation(this, R.anim.fadein);
+//            viewRequests.startAnimation(anim);
+//            Handler handler = new Handler();
+//            handler.postDelayed(() -> Toast.makeText(MainActivity.this,"View Requests",Toast.LENGTH_LONG).show(), 200);
+//        });
 
-
-    private void signInWithCredential(PhoneAuthCredential credential) {
-        Toast.makeText(MainActivity.this, "Signing In", Toast.LENGTH_SHORT).show();
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
 
 }
